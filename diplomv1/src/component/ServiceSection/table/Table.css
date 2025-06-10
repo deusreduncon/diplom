@@ -1,0 +1,44 @@
+.TableImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  transition: transform 0.1s ease;
+}
+
+.TableInfo {
+  padding: 32px;
+  width: 435px;
+  height: 372px;
+  background: white;
+  border-radius: 16px;
+  transition: all 0.1s ease;
+  will-change: transform;
+}
+
+.TableInfo h1 {
+  font-size: 21px;
+  color: #1F2937;
+  margin-bottom: 16px;
+}
+
+.TableInfo p {
+  font-size: 16px;
+  color: #616976;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.arrows {
+  margin-top: 8px;
+  color: #616976;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: default;
+  transition: transform 0.1s ease;
+}
+

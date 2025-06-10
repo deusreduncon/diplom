@@ -1,0 +1,105 @@
+.ContactSection{
+    background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1));
+    width: 99vw;
+    height: 775px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+
+.Contact{
+    width: 660px;
+    height: 192px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ContactText{
+    width: 660px;
+    height: 615px;
+}
+
+.ConUs {
+    h1{
+        font-size: 36px;
+        font-weight: 700;
+        color: #9293FB;
+        margin-bottom: 32px;
+    }
+    p{
+        font-size: 20px;
+        color: #D1D5DB;
+        margin-bottom: 32px;
+        font-weight: 300;
+    }
+}
+
+.Application{
+    width: 660px;
+    height: 615px;
+    background-color: #26303F;
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.AplicationText{
+    h1{
+        font-size: 24px;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+    }
+    p{
+        font-size: 16px;
+        color: #D1D5DB;
+        margin-bottom: 24px;
+    }
+}
+
+.InputInfo{
+    height: 48px;
+    border-radius: 10px;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+    border-color: rgb(107 114 128 / var(--tw-border-opacity, 1));
+    border-width: 1px;
+    border-style: solid;
+    padding: 16px;
+}
+
+.FormSpace{
+    width: 596px;
+    height: 415px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+        placeholder{
+            color: #97A0AC;
+        }
+}
+
+.PlaceInfo{
+    height: 130px;
+    background-color: rgb(75 85 99 / var(--tw-bg-opacity, 1));
+    border-radius: 10px;
+    border: none;
+    resize: none;
+    padding: 16px;
+    
+}
+
+
+
+.confident{
+    margin-top: 16px;
+    p{
+        color: #9CA3AF;
+        font-size: 12px;
+    }
+}
+
+.ApplicationConfirm{
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2A61EB;
+    color: #FFFFFF;
+}

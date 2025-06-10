@@ -1,0 +1,143 @@
+/* Обертка модального окна */
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 1000;
+}
+
+/* Активное модальное окно */
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Блок контента */
+.modalContent {
+  padding: 2rem;
+  border-radius: 16px;
+  background: white;
+  width: 32vw;
+  max-width: 480px;
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Активный контент */
+.modalContent.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Отключение прокрутки */
+.no-scroll {
+  position: fixed;
+  overflow: hidden;
+}
+
+/* Форма авторизации */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Заголовок формы */
+.auth-form h3 {
+  margin: 0 0 1rem;
+  text-align: center;
+  color: #1e3a8a; /* темно-синий */
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Поля ввода */
+.auth-form input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 1rem;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background: #ffffff;
+}
+
+/* Кнопка отправки */
+.auth-submit {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.auth-submit:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+/* Ссылка под формой */
+.auth-link {
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.auth-link:hover {
+  color: #1e3a8a;
+}
+
+/* Вкладки (например, Вход / Регистрация) */
+.auth-tabs {
+  display: flex;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.3s, border-bottom 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.tab:hover {
+  color: #1d4ed8;
+  border-bottom: 2px solid #60a5fa;
+}
+
+.tab.active {
+  color: #1d4ed8;
+  border-bottom: 2px solid #3b82f6;
+}

@@ -1,0 +1,29 @@
+.TextSection{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 64px;
+        h1{
+            color: #5C4BEB;
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+        p{
+            color: #4F5966;
+            font-size: 24px;
+        }
+}
+
+.Tables{
+    margin: auto;
+    width: 776px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.TableSection{
+    margin: auto;
+}

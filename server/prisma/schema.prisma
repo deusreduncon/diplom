@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+
+model Application {
+  id        Int      @id @default(autoincrement())
+  name      String
+  phone     String
+  email     String
+  message   String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  source    String?
+  status    Status   @default(NEW) // Новое поле для статуса
+}
+
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(USER)
+  applications Application[] // связь один ко многим (один пользователь — много заявок)
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum Status {
+  NEW
+  IN_PROGRESS
+  DONE
+}
+
+model Service {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String
+  items       String[] // массив строк, например: ["Пункт 1", "Пункт 2"]
+  active      Boolean  @default(true)
+}
+
+model Setting {
+  id          Int    @id @default(autoincrement())
+  key         String @unique
+  value       String
+}
+
+model Content {
+  id           Int     @id @default(autoincrement())
+  heroTitle    String
+  heroSubtitle String
+  phone        String
+  email        String
+  address      String
+}

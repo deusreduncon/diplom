@@ -1,0 +1,187 @@
+.settings-wrapper {
+  padding: 40px 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.settings-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: #1f2937;
+  letter-spacing: 0.02em;
+  text-align: center;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.controls input[type="text"],
+.controls select {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline-offset: 2px;
+  transition: border-color 0.25s ease;
+  min-width: 180px;
+}
+
+.controls input[type="text"]:focus,
+.controls select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59,130,246,0.4);
+}
+
+.settings-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.settings-table thead tr {
+  background-color: transparent;
+}
+
+.settings-table th {
+  padding: 14px 20px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 15px;
+  color: #4b5563;
+  user-select: none;
+}
+
+.settings-table tbody tr {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeInUp 0.4s forwards;
+}
+
+.settings-table tbody tr:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+.settings-table tbody tr:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.settings-table tbody tr:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.settings-table td {
+  padding: 14px 20px;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #374151;
+  border: none;
+}
+
+.settings-table td input,
+.settings-table td select {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #fefefe;
+  outline-offset: 2px;
+  transition: border-color 0.25s ease;
+}
+
+.settings-table td input:focus,
+.settings-table td select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59,130,246,0.4);
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.action {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.action svg {
+  width: 20px;
+  height: 20px;
+}
+
+.action.edit {
+  color: #2563eb;
+}
+
+.action.edit:hover {
+  background-color: #e0e7ff;
+  color: #1e40af;
+}
+
+.action.save {
+  color: #059669;
+}
+
+.action.save:hover {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.action.cancel {
+  color: #6b7280;
+}
+
+.action.cancel:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.action.delete {
+  color: #ef4444;
+}
+
+.action.delete:hover {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 60px;
+  color: #6b7280;
+  font-weight: 500;
+}

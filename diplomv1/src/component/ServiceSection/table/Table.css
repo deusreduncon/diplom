@@ -10,7 +10,8 @@
 }
 
 .TableInfo {
-  padding: 32px;
+  cursor: pointer;
+  padding: 35px;
   width: 435px;
   height: 372px;
   background: white;

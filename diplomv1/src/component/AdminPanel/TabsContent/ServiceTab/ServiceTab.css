@@ -1,0 +1,150 @@
+.services-wrapper {
+  padding: 32px;
+  max-width: 1320px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.services-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.services-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.btn-gradient {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    background: linear-gradient(to right, #7e22ce, #2563eb);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-gradient:hover {
+  opacity: 0.9;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.card-header h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-outline {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-outline:hover {
+  background: #f0f0f0;
+}
+
+.btn-outline.danger {
+  color: red;
+  border-color: red;
+}
+
+.Description {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 16px;
+  max-width: 340px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #7e22ce;
+}
+
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.badge.active {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.badge.inactive {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.add-service-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.add-service-form input,
+.add-service-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+}

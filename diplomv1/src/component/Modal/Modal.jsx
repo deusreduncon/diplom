@@ -1,8 +1,80 @@
 import './Modal.css';
 import  { useEffect, useState } from 'react';
 
-function Modal({ active, setActive, children }) {
+
+function Modal({ active, setActive, children,onLoginSuccess}) {
     const [isLogin, setIsLogin] = useState(true);
+    const [regName, setRegName] = useState("");
+    const [regEmail, setRegEmail] = useState("");
+    const [regPassword, setRegPassword] = useState("");
+    const [regConfirmPassword, setRegConfirmPassword] = useState("");
+    const [regError, setRegError] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
+    const [loginError, setLoginError] = useState("");
+    
+    
+    const handleLogin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch("http://localhost:3001/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: loginEmail, password: loginPassword }),
+      });
+
+      const data = await res.json();
+      console.log("Ответ от сервера:", data);
+
+      if (!res.ok) {
+        setLoginError(data.error || "Ошибка входа");
+      } else {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        alert("Вход успешен!");
+        setActive(false);
+        onLoginSuccess(data.user);  // <-- Важно! Передаём пользователя наверх
+        console.log(data.user);
+      }
+    } catch (err) {
+      console.log(err);
+      setLoginError("Сервер не отвечает");
+    }
+  };  
+
+    const handleRegister = async (e) => {
+     e.preventDefault();
+
+        if (regPassword !== regConfirmPassword) {
+            setRegError("Пароли не совпадают");
+            return;
+        }
+
+        try {
+            const res = await fetch("http://localhost:3001/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+            name: regName,
+            email: regEmail,
+             password: regPassword,
+            }),
+         });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      setRegError(data.message || "Ошибка регистрации");
+    } else {
+      onLoginSuccess(data.user);
+      setActive(false);
+    }
+  } catch (err) {
+     console.error(err);
+    setRegError("Сервер не отвечает");
+  }
+};
+
+   
     useEffect(() => {
   if (active) {
     document.body.classList.add("no-scroll");
@@ -34,29 +106,64 @@ function Modal({ active, setActive, children }) {
         </div>
             {children}
             {isLogin ? (
-          <form className="auth-form">
-            <h3>Вход в аккаунт</h3>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Пароль" required />
-            <button type="submit" className="auth-submit">
-              Войти
-            </button>
-            <a href="#forgot" className="auth-link">
-              Забыли пароль?
-            </a>
-          </form>
-        ) : (
-          <form className="auth-form">
+                    <form className="auth-form" onSubmit={handleLogin}>
+                    <h3>Вход в аккаунт</h3>
+                    {loginError && <div className="auth-error">{loginError}</div>}
+                    <input
+                    type="email"
+                    placeholder="Email"
+                    value={loginEmail}
+                    onChange={(e) => setLoginEmail(e.target.value)}
+                    required
+                    />
+                    <input
+                    type="password"
+                    placeholder="Пароль"
+                    value={loginPassword}
+                    onChange={(e) => setLoginPassword(e.target.value)}
+                    required
+                    />
+                    <button type="submit" className="auth-submit">
+                    Войти
+                    </button>
+                </form>
+            ) : (
+                <form className="auth-form" onSubmit={handleRegister}>
             <h3>Создать аккаунт</h3>
-            <input type="text" placeholder="Имя" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Пароль" required />
-            <input type="password" placeholder="Повторите пароль" required />
+            {regError && <div className="auth-error">{regError}</div>}
+             <input
+             type="text"
+            placeholder="Имя"
+            value={regName}
+            onChange={(e) => setRegName(e.target.value)}
+            required
+            />
+            <input
+                type="email"
+                placeholder="Email"
+                value={regEmail}
+                onChange={(e) => setRegEmail(e.target.value)}
+                required
+            />
+            <input
+                type="password"
+                placeholder="Пароль"
+                value={regPassword}
+                onChange={(e) => setRegPassword(e.target.value)}
+                required
+            />
+            <input
+                type="password"
+                placeholder="Повторите пароль"
+                value={regConfirmPassword}
+                onChange={(e) => setRegConfirmPassword(e.target.value)}
+                required
+            />
             <button type="submit" className="auth-submit">
-              Зарегистрироваться
+                Зарегистрироваться
             </button>
-          </form>
-        )}
+            </form>
+            )}
         </div>
     </div>
   )

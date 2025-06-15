@@ -1,5 +1,6 @@
 import { Megaphone, ArrowRight,Smartphone,Globe,Target,ChartBar,Zap} from 'lucide-react';
 import  { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import "./Table.css";
 
 function Table({
@@ -12,8 +13,10 @@ function Table({
     "A/B тестирование"
   ],
   arrowColor = "#A149F2",
-  iconBgColor = "#A149F2"
+  iconBgColor = "#A149F2",
+  slug = "ads"
 }) {
+    const navigate = useNavigate();
   // Варианты анимации
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -43,6 +46,7 @@ function Table({
         boxShadow: "0 10px 25px rgba(161, 73, 242, 0.15)"
       }}
       transition={{ type: "spring", stiffness: 300 }}
+      onClick={() => navigate(`/leads/${slug}`)}
     >
       <motion.div 
         className='TableImg'

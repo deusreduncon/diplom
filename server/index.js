@@ -1,7 +1,12 @@
 const express = require("express");
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
+<<<<<<< HEAD
 const bcrypt = require('bcryptjs');
+=======
+const bcrypt= require('bcryptjs');
+require('dotenv').config();
+>>>>>>> 5ac3fd8 (WIP: мои изменения перед pull)
 
 const app = express();
 const prisma = new PrismaClient();
@@ -61,7 +66,13 @@ app.post("/login", async (req, res) => {
   res.json({ message: "Успешный вход", user: { id: user.id, name: user.name, email: user.email, role: user.role } });
 });
 
+
 // Создание заявки
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+});
+
 app.post('/applications', async (req, res) => {
   const { name, phone, email, message, userId, source } = req.body;
 

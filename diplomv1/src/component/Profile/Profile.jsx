@@ -16,7 +16,7 @@ const Profile = ({ user, setUser }) => {
     // Загрузка заявок пользователя
      useEffect(() => {
         if (user?.id) {
-            fetch(`http://localhost:3001/applications?userId=${user.id}`)
+            fetch(`http://109.172.38.23:3001/applications?userId=${user.id}`)
                 .then(res => {
                     if (!res.ok) throw new Error('Ошибка загрузки заявок');
                     return res.json();
@@ -36,24 +36,32 @@ const Profile = ({ user, setUser }) => {
         }
     }, [user]);
 
-    const handleUpdateProfile = () => {
-        fetch(`http://localhost:3001/users/${user.id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone
-            })
-        })
-        .then(res => res.json())
-        .then(updatedUser => {
-            setUser(updatedUser);
-            localStorage.setItem('user', JSON.stringify(updatedUser));
-            setEditMode(false);
-        })
-        .catch(err => console.error("Ошибка обновления:", err));
-    };
+   const handleUpdateProfile = () => {
+  fetch(`http://109.172.38.23:3001/profile/${user.id}`, {  // Новый эндпоинт!
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      // Другие поля профиля (но не role/password!)
+    }),
+  })
+    .then((res) => {
+      if (!res.ok) throw new Error("Ошибка сервера");
+      return res.json();
+    })
+    .then((updatedUser) => {
+      setUser(updatedUser);
+      localStorage.setItem("user", JSON.stringify(updatedUser));
+      setEditMode(false);
+      alert("Профиль успешно обновлён!"); // Уведомление пользователя
+    })
+    .catch((err) => {
+      console.error("Ошибка:", err);
+      alert("Ошибка при обновлении: " + err.message);
+    });
+};
 
     const handleLogout = () => {
         localStorage.removeItem('user');
@@ -68,7 +76,7 @@ const Profile = ({ user, setUser }) => {
 
     const getStatusBadge = (status) => {
         const statusMap = {
-            'NEW': 'Новая',
+            'NEW': 'Ожидает рассмотрения',
             'IN_PROGRESS': 'В работе',
             'DONE': 'Завершена'
         };
@@ -102,12 +110,6 @@ const Profile = ({ user, setUser }) => {
             />
           </div>
           <div className="profile-field-group">
-            <label className="profile-field-label">Телефон:</label>
-            <input className="profile-field-input"
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            />
           </div>
           <div className="profile-action-buttons">
             <button className="profile-btn profile-save" onClick={handleUpdateProfile}>
@@ -122,7 +124,6 @@ const Profile = ({ user, setUser }) => {
         <div className="profile-view">
           <h2 className="profile-username">{user.name}</h2>
           <p className="profile-info"><strong>Email:</strong> {user.email}</p>
-          <p className="profile-info"><strong>Телефон:</strong> {user.phone || 'Не указан'}</p>
           <div className="profile-view-actions">
             <button className="profile-btn profile-edit" onClick={() => setEditMode(true)}>
               Редактировать профиль
@@ -148,16 +149,9 @@ const Profile = ({ user, setUser }) => {
                 <span className="request-date">{formatDate(app.createdAt)}</span>
               </div>
               <div className="request-body">
-                <h3 className="request-title">{app.name}</h3>
                 <p className="request-message">{app.message}</p>
               </div>
               <div className="request-footer">
-                <button 
-                  className="profile-btn request-details"
-                  onClick={() => navigate(`/applications/${app.id}`)}
-                >
-                  Подробнее
-                </button>
               </div>
             </div>
           ))}

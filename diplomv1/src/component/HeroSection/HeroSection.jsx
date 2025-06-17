@@ -29,7 +29,7 @@ const HeroSection = () => {
             if (storedUser) {
                 setUser(JSON.parse(storedUser));
             }
-        // Генерация частиц
+        
         const particlesArray = Array.from({ length: 20 }, (_, i) => ({
             id: i,
             size: Math.random() * 5 + 2,
@@ -39,7 +39,7 @@ const HeroSection = () => {
         }));
         setParticles(particlesArray);
 
-        fetch("http://localhost:3001/content")
+        fetch("http://109.172.38.23:3001/content")
         .then(res => res.json())
         .then(data => {
             if (data) {

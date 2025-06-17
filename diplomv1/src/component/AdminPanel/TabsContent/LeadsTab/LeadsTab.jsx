@@ -41,7 +41,7 @@ const LeadsTab = () => {
   }, []);
 
   const fetchLeads = () => {
-    fetch("http://localhost:3001/applications")
+    fetch("http://109.172.38.23:3001/applications")
       .then(res => res.json())
       .then(data => setLeads(data))
       .catch(console.error);
@@ -70,7 +70,7 @@ const LeadsTab = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Удалить заявку?")) return;
     try {
-      await fetch(`http://localhost:3001/applications/${id}`, { method: "DELETE" });
+      await fetch(`http://109.172.38.23:3001/applications/${id}`, { method: "DELETE" });
       setLeads(leads.filter(lead => lead.id !== id));
     } catch (e) {
         console.error(e);
@@ -100,7 +100,7 @@ const LeadsTab = () => {
   // Сохранить изменения
   const saveEdit = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3001/applications/${id}`, {
+      const res = await fetch(`http://109.172.38.23:3001/applications/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: editStatus, message: editMessage }),

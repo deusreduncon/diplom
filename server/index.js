@@ -63,7 +63,7 @@ app.post("/login", async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+  console.log(`🚀 Сервер запущен на http://109.172.38.23:${PORT}`);
 });
 
 app.post('/applications', async (req, res) => {
@@ -276,6 +276,38 @@ app.put("/users/:id", async (req, res) => {
   } catch (err) {
     console.error(`Ошибка при обновлении пользователя с id=${id}:`, err);
     res.status(500).json({ error: "Пользователь не найден или ошибка при обновлении" });
+  }
+});
+
+// Обновление профиля (безопасный вариант, не трогает role и password)
+app.put("/profile/:id", async (req, res) => {
+  const id = parseInt(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).json({ error: "Некорректный ID пользователя" });
+  }
+
+  // Достаём только нужные поля (исключаем password, role и другие защищённые поля)
+  const { name, email, phone } = req.body;
+
+  // Проверяем, не занят ли email другим пользователем
+  if (email) {
+    const emailInUse = await prisma.user.findFirst({
+      where: { email, NOT: { id } },
+    });
+    if (emailInUse) {
+      return res.status(400).json({ error: "Email уже используется" });
+    }
+  }
+
+  try {
+    const updatedUser = await prisma.user.update({
+      where: { id },
+      data: { name, email, phone }, // Обновляем только эти поля
+    });
+    res.json(updatedUser);
+  } catch (err) {
+    console.error("Ошибка обновления профиля:", err);
+    res.status(500).json({ error: "Не удалось обновить профиль" });
   }
 });
 

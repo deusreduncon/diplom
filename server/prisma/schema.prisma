@@ -28,6 +28,7 @@ model User {
   email     String   @unique
   password  String
   role      Role     @default(USER)
+  phone     String?  
   applications Application[] // связь один ко многим (один пользователь — много заявок)
   createdAt DateTime @default(now())
 }

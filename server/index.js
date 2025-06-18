@@ -1,12 +1,9 @@
 const express = require("express");
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
-<<<<<<< HEAD
 const bcrypt = require('bcryptjs');
-=======
-const bcrypt= require('bcryptjs');
 require('dotenv').config();
->>>>>>> 5ac3fd8 (WIP: мои изменения перед pull)
+
 
 const app = express();
 const prisma = new PrismaClient();
@@ -14,6 +11,7 @@ const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
+
 
 // Регистрация
 app.post("/register", async (req, res) => {
@@ -70,14 +68,10 @@ app.post("/login", async (req, res) => {
 
 // Создание заявки
 
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+app.listen(PORT,'::', () => {
+  console.log(`🚀 Сервер запущен на http://109.107.38.23:${PORT}`);
 });
 
-
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
- });
 
 app.post('/applications', async (req, res) => {
   const { name, phone, email, message, userId, source } = req.body;
@@ -325,12 +319,11 @@ app.put("/profile/:id", async (req, res) => {
     res.status(500).json({ error: "Не удалось обновить профиль" });
   }
 });
-<<<<<<< HEAD
+
 
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-=======
->>>>>>> 8cb9b2d (fix)
+

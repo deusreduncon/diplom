@@ -8,6 +8,7 @@ import AdminPanel from "./component/AdminPanel/AdminPanel"
 import LeadDetails from "./component/ServiceSection/LeadsDetail/LeadsDetail";
 import { ContentProvider } from "./component/context/ContentContext";
 import Profile from './component/Profile/Profile';
+import AboutUs from "./component/Footer/AboutUs/AboutUs";
  function App(){
     const [user, setUser] = useState(null);
     const [content, setContent] = useState(null);
@@ -65,6 +66,7 @@ import Profile from './component/Profile/Profile';
                     />
                     <Route path="/leads/:slug" element={<LeadDetails/>} />
                     <Route path="/profile" element={<Profile user={user} setUser={setUser} />} />
+                    <Route path="/about" element={<AboutUs />} />
                 </Routes>
         </Router>
     </ContentProvider>

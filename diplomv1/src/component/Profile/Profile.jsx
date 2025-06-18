@@ -159,12 +159,6 @@ const Profile = ({ user, setUser }) => {
       ) : (
         <div className="profile-no-requests">
           <p className="no-requests-message">У вас пока нет заявок</p>
-          <button 
-            className="profile-btn create-request"
-            onClick={() => navigate('/contact')}
-          >
-            Создать новую заявку
-          </button>
         </div>
       )}
     </div>

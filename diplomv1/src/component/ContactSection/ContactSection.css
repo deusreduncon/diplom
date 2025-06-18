@@ -153,3 +153,63 @@
   transform: translateY(0);
   box-shadow: 0 3px 8px rgba(42, 97, 235, 0.5);
 }
+@media (max-width: 768px) {
+
+    .ContactSection {
+        flex-direction: column;
+        height: auto;
+        padding: 40px 16px;
+    }
+
+    .Contact {
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ContactText {
+        width: 100%;
+        height: auto;
+        margin-bottom: 24px;
+    }
+
+    .Application {
+        width: 100%;
+        height: auto;
+        padding: 1.5rem;
+    }
+
+    .FormSpace {
+        width: 100%;
+        height: auto;
+    }
+
+    .InputInfo, 
+    .PlaceInfo {
+        width: 100%;
+    }
+
+    .ApplicationConfirm {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ConUs h1 {
+        font-size: 28px;
+    }
+
+    .ConUs p {
+        font-size: 16px;
+    }
+
+    .AplicationText h1 {
+        font-size: 20px;
+    }
+
+    .AplicationText p {
+        font-size: 14px;
+    }
+}

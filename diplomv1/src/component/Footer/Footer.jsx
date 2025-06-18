@@ -1,5 +1,14 @@
 import "./Footer.css"
 function Footer(){
+     const scrollToSection = (id) => {
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start',     
+            });
+        }
+    };
     return(
         <div className="Footer">
             <div className="FooterInfo">
@@ -8,9 +17,9 @@ function Footer(){
                     <p>Рекламное агенство полного цикла</p>
                 </div>
                 <div className="FooterNav">
-                    <a href="#">Услуги</a>
-                    <a href="#">Контакты</a>
-                    <a href="#">О нас</a>
+                    <a onClick={() => scrollToSection('services-section')}>Услуги</a>
+                    <a onClick={() => scrollToSection('contact-section')}>Контакты</a>
+                    <a href="/about">О нас</a>
                 </div>
                 <div className="bordert"></div>
                 <div className="RightsReserved">© 2024 ООО "Продвижение" Все права защищены.</div>

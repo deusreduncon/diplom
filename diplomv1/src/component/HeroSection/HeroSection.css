@@ -280,3 +280,67 @@
         transform: translateY(0);
     }
 }
+
+@media (max-width: 768px) {
+    .Hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px;
+        height: auto; /* чтобы не зафиксированная высота */
+    }
+
+    .HeroText {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .HeroText h1 {
+        font-size: 36px; /* было 72px */
+        width: 100%;
+    }
+
+    .HeroText p {
+        font-size: 16px; /* было 24px */
+        width: 100%;
+        height: auto;
+    }
+
+    .HeroButtons {
+        margin-top: 20px;
+    }
+
+    .button button {
+        width: 90%;
+        max-width: 320px;
+        font-size: 16px;
+    }
+
+    .login-btn {
+        top: 16px;
+        right: 16px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .user-info {
+        top: 16px;
+        right: 16px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .Hero::before, .Hero::after {
+        display: none; /* можно отключить большие круги на телефонах */
+    }
+}
+
+@media (max-width: 480px) {
+    .HeroText h1 {
+        font-size: 28px;
+    }
+
+    .HeroText p {
+        font-size: 14px;
+    }
+}

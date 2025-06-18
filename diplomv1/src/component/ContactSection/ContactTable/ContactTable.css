@@ -32,3 +32,48 @@
     font-size: 16px;
     color: #D1D5DB;
 }
+
+@media (max-width: 768px) {
+
+    .ContactTable {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+
+    .ContactImg {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 8px;
+    }
+
+    .Conn {
+        width: 100%;
+        height: auto;
+    }
+
+    .ContactTable h3 {
+        font-size: 14px;
+    }
+
+    .ContactTable p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .ContactImg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .ContactTable h3 {
+        font-size: 13px;
+    }
+
+    .ContactTable p {
+        font-size: 13px;
+    }
+}

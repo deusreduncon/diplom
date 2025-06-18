@@ -85,7 +85,7 @@ function ServiceSection(){
     }
   ];
     return(
-        <div className="TableSection">
+        <div id="services-section" className="TableSection">
             <div className="TextSection">
                 <h1>Наши Услуги</h1>
                 <p>Комплексные решение для развититя вашего бизнеса</p>

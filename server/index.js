@@ -62,9 +62,7 @@ app.post("/login", async (req, res) => {
   res.json({ message: "Успешный вход", user: { id: user.id, name: user.name, email: user.email, role: user.role } });
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Сервер запущен на http://109.172.38.23:${PORT}`);
-});
+
 
 app.post('/applications', async (req, res) => {
   const { name, phone, email, message, userId,source } = req.body;

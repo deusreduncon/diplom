@@ -67,11 +67,17 @@ app.post("/login", async (req, res) => {
 });
 
 
+
 // Создание заявки
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
 });
+
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Сервер запущен на http://localhost:${PORT}`);
+ });
 
 app.post('/applications', async (req, res) => {
   const { name, phone, email, message, userId, source } = req.body;
@@ -319,9 +325,12 @@ app.put("/profile/:id", async (req, res) => {
     res.status(500).json({ error: "Не удалось обновить профиль" });
   }
 });
+<<<<<<< HEAD
 
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
+=======
+>>>>>>> 8cb9b2d (fix)

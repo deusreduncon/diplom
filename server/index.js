@@ -1,12 +1,8 @@
 const express = require("express");
 const cors = require('cors');
 const { PrismaClient } = require('@prisma/client');
-<<<<<<< HEAD
-const bcrypt = require('bcryptjs');
-=======
 const bcrypt= require('bcryptjs');
 require('dotenv').config();
->>>>>>> 5ac3fd8 (WIP: мои изменения перед pull)
 
 const app = express();
 const prisma = new PrismaClient();
@@ -325,12 +321,33 @@ app.put("/profile/:id", async (req, res) => {
     res.status(500).json({ error: "Не удалось обновить профиль" });
   }
 });
-<<<<<<< HEAD
-
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
-=======
->>>>>>> 8cb9b2d (fix)
+async function createAdminIfNotExists() {
+  const email = "admin@example.com";
+  const password = "admin123";
+
+  // Проверяем, есть ли уже админ
+  const existingAdmin = await prisma.user.findUnique({ where: { email } });
+  if (existingAdmin) {
+    console.log("Админ уже существует");
+    return;
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const admin = await prisma.user.create({
+    data: {
+      name: "Admin",
+      email,
+      password: hashedPassword,
+      role: "ADMIN",
+    },
+  });
+  console.log("Админ создан:", admin);
+}
+
+// Запускаем после старта сервера
+createAdminIfNotExists().catch(console.error);

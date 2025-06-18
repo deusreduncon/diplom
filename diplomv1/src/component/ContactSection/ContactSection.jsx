@@ -21,7 +21,7 @@ function ContactSection({user,contact}){
     }
 
     try {
-      const res = await fetch("http://109.172.38.23:3001/applications", {
+      const res = await fetch("http://109.172.38.23/api/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -41,7 +41,7 @@ const LeadsTab = () => {
   }, []);
 
   const fetchLeads = () => {
-    fetch("http://109.172.38.23:3001/applications")
+    fetch("http://109.172.38.23/api/applications")
       .then(res => res.json())
       .then(data => setLeads(data))
       .catch(console.error);

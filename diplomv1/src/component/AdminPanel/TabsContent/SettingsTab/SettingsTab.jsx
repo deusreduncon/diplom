@@ -16,7 +16,7 @@ const SettingsTab = () => {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://109.172.38.23:3001/users");
+      const res = await fetch("http://109.172.38.23/api/users");
       const data = await res.json();
       setUsers(data);
     } catch (err) {

@@ -17,7 +17,7 @@ function Modal({ active, setActive, children,onLoginSuccess}) {
     const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://109.172.38.23:3001/login", {
+      const res = await fetch("http://109.172.38.23/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
@@ -50,7 +50,7 @@ function Modal({ active, setActive, children,onLoginSuccess}) {
         }
 
         try {
-            const res = await fetch("http://109.172.38.23:3001/register", {
+            const res = await fetch("http://109.172.38.23/api/register", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

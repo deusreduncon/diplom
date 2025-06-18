@@ -13,7 +13,7 @@ const ManageContent = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://109.172.38.23:3001/content")
+    fetch("http://109.172.38.23/api/content")
       .then(res => res.json())
       .then(data => {
         if (data && data.id) {

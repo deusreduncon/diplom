@@ -41,7 +41,7 @@ export default function DashboardTab() {
         totalServices: 0,
         recentApplications: []
     };
-    fetch("http://109.172.38.23:3001/dashboard/stats")
+    fetch("http://109.172.38.23/api/dashboard/stats")
       .then((res) => res.json())
       .then((data) => setStats({ ...defaultStats, ...data }))
       .catch((err) => console.error("Ошибка загрузки данных:", err));

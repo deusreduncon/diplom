@@ -326,4 +326,29 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
 
+async function createAdminIfNotExists() {
+  const email = "admin@example.com";
+  const password = "admin123";
+
+  // Проверяем, есть ли уже админ
+  const existingAdmin = await prisma.user.findUnique({ where: { email } });
+  if (existingAdmin) {
+    console.log("Админ уже существует");
+    return;
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+  const admin = await prisma.user.create({
+    data: {
+      name: "Admin",
+      email,
+      password: hashedPassword,
+      role: "ADMIN",
+    },
+  });
+  console.log("Админ создан:", admin);
+}
+
+// Запускаем после старта сервера
+createAdminIfNotExists().catch(console.error);
 

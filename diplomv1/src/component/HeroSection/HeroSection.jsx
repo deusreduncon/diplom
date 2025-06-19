@@ -7,10 +7,9 @@ import ContactSection from '../ContactSection/ContactSection';
 
 
 
-const HeroSection = () => {
+const HeroSection = ({ user, setUser }) => {
     const [particles, setParticles] = useState([]);
     const [modalActive, setIsModalActive] = useState(false);
-    const [user, setUser] = useState(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [heroTitle, setHeroTitle] = useState("Загрузка...");
     const [heroSubtitle, setHeroSubtitle] = useState("");

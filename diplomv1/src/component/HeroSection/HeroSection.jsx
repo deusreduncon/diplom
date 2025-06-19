@@ -53,7 +53,7 @@ const HeroSection = ({ user, setUser }) => {
             setUser(userData);
             setIsModalActive(false);
             localStorage.setItem("user", JSON.stringify(userData));
-            localStorage.setItem('token');
+            localStorage.setItem('token',  userData.token || '');
              localStorage.setItem("userId", userData.id);
             if (userData.role === "ADMIN") {
                 navigate("/admin");

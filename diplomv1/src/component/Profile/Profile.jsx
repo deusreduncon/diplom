@@ -123,7 +123,7 @@ const Profile = ({ user, setUser }) => {
       ) : (
         <div className="profile-view">
           <h2 className="profile-username">{user.name}</h2>
-          <p className="profile-info"><strong>Email:</strong> {user.email}</p>
+          <p className="profile-info"><strong>Email:</strong> {formData.email}</p>
           <div className="profile-view-actions">
             <button className="profile-btn profile-edit" onClick={() => setEditMode(true)}>
               Редактировать профиль

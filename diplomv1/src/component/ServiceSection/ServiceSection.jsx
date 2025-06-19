@@ -82,7 +82,7 @@ function ServiceSection(){
             "Каталоги",
             "Плакаты"
         ],
-        slug: "print-products"
+        slug: "printProducts"
     },
     {
         icon: <Gift size={32} color="#FFFFFF" />,
@@ -96,7 +96,7 @@ function ServiceSection(){
             "Блокноты",
             "Брендированные ручки"
         ],
-        slug: "souvenir-products"
+        slug: "souvenirProducts"
     },
     {
         icon: <BadgeCheck size={32} color="#FFFFFF" />,
@@ -110,7 +110,7 @@ function ServiceSection(){
             "Конверты",
             "Папки"
         ],
-        slug: "corporate-products"
+        slug: "corporateProducts"
     },
     {
         icon: <Package size={32} color="#FFFFFF" />,
@@ -124,7 +124,7 @@ function ServiceSection(){
             "Этикетки",
             "Бирки"
         ],
-        slug: "packaging-labels"
+        slug: "packagingLabels"
     },
     {
         icon: <Calendar size={32} color="#FFFFFF" />,
@@ -152,7 +152,7 @@ function ServiceSection(){
             "Дисплеи",
             "Стойки"
         ],
-        slug: "pos-materials"
+        slug: "posMaterials"
     },
     {
         icon:<Zap size={32} color="#FFFFFF" />,

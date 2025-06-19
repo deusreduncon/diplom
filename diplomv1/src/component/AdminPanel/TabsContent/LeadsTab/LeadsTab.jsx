@@ -272,20 +272,8 @@ const exportToPDF = () => {
                       <Phone size={12} /> {lead.phone}
                     </div>
                   </td>
-                        <td className="truncate" onClick={() => {
-                                if (editingId !== lead.id) startEdit(lead);
-                                }}>
-                                {editingId === lead.id ? (
-                                <textarea
-                                value={editMessage}
-                                onChange={(e) => setEditMessage(e.target.value)}
-                                rows={3}
-                                autoFocus
-                                onClick={(e) => e.stopPropagation()} // предотврати повторный вызов startEdit
-                                />
-                            ) : (
-                                lead.message
-                            )}
+                        <td className="truncate">
+                            {lead.message}
                         </td>
                   <td className="date">
                     <Calendar size={12} /> {new Date(lead.createdAt).toLocaleDateString("ru-RU")}

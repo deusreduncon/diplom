@@ -1,4 +1,4 @@
-import { Megaphone, ArrowRight,Smartphone,Globe,Target,ChartBar,Zap} from 'lucide-react';
+import { Megaphone, ArrowRight,Smartphone,Globe,Target,ChartBar,Zap,Printer,Gift,BadgeCheck,Package,Calendar,Store} from 'lucide-react';
 import "./ServiceSection.css"
 import Table from "./table/Table"
 

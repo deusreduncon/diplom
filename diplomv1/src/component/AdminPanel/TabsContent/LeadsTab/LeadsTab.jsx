@@ -60,8 +60,16 @@ const LeadsTab = () => {
   const sourceMap = {
     ads: "Контекстная реклама",
     smm: "SMM",
-    email: "Email-маркетинг",
-    direct: "Прямые обращения",
+    seo: "seo",
+    brand: "brand",
+    webanalytics: "Веб-аналитика",
+    printProducts: "Печатная продукция",
+    souvenirProducts: "Сувенирная продукция",
+    corporateProducts: "Корпоративная продукция",
+    packagingLabels: "Упаковки и этекетки",
+    calendars: "Календари",
+    posMaterials: "POS-материалы",
+    zap: "Креативы"
   };
   return sourceMap[source] || "Форма сайта";
 }

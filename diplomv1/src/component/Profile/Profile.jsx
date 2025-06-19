@@ -48,12 +48,13 @@ const Profile = ({ user, setUser }) => {
                 if (!res.ok) throw new Error("Ошибка сервера");
                 return res.json();
             })
-            .then(updatedUser => {
+            .then((updatedUser) => {
                 setUser(updatedUser);
+                setFormData({ name: updatedUser.name, email: updatedUser.email }); // <- добавлено!
                 localStorage.setItem("user", JSON.stringify(updatedUser));
                 setEditMode(false);
                 alert("Профиль успешно обновлён!");
-            })
+        })
             .catch(err => {
                 console.error("Ошибка:", err);
                 alert("Ошибка при обновлении: " + err.message);

@@ -178,7 +178,8 @@ function LeadDetails() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userId = localStorage.getItem('userId');
+    const userData = localStorage.getItem('user');
+    const userId = userData ? JSON.parse(userData).id : null;
     if (!userId) {
         alert("Пожалуйста, войдите в систему, чтобы оставить заявку.");
         return;

@@ -30,6 +30,7 @@ function Modal({ active, setActive, children,onLoginSuccess}) {
         setLoginError(data.error || "Ошибка входа");
       } else {
         localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("userId", data.user.id); 
         alert("Вход успешен!");
         setActive(false);
         onLoginSuccess(data.user);  // <-- Важно! Передаём пользователя наверх
@@ -66,6 +67,8 @@ function Modal({ active, setActive, children,onLoginSuccess}) {
       setRegError(data.message || "Ошибка регистрации");
     } else {
       onLoginSuccess(data.user);
+      localStorage.setItem("user", JSON.stringify(data.user));   // Можно добавить для регистра
+      localStorage.setItem("userId", data.user.id);     
       setActive(false);
     }
   } catch (err) {

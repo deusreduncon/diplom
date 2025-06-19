@@ -12,6 +12,12 @@ const Profile = ({ user, setUser }) => {
     });
 
     const navigate = useNavigate();
+    useEffect(() => {
+        setFormData({
+        name: user?.name || '',
+        email: user?.email || ''
+        });
+  }, [user]);
 
     // Загрузка заявок пользователя
     useEffect(() => {

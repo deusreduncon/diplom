@@ -71,6 +71,90 @@ function ServiceSection(){
       slug: "webanalytics"
     },
     {
+        icon: <Printer size={32} color="#FFFFFF" />,
+        iconBgColor: "#B71C1C",
+        arrowColor: "#E53935",
+        title: "Печатная продукция",
+        description: "Производство листовок, буклетов, каталогов и другой рекламной полиграфии для бизнеса.",
+        items: [
+            "Листовки",
+            "Буклеты",
+            "Каталоги",
+            "Плакаты"
+        ],
+        slug: "print-products"
+    },
+    {
+        icon: <Gift size={32} color="#FFFFFF" />,
+        iconBgColor: "#4E342E",
+        arrowColor: "#6D4C41",
+        title: "Сувенирная продукция",
+        description: "Изготовление брендированных сувениров для продвижения вашей компании и подарков клиентам.",
+        items: [
+            "Флешки с логотипом",
+            "Кружки",
+            "Блокноты",
+            "Брендированные ручки"
+        ],
+        slug: "souvenir-products"
+    },
+    {
+        icon: <BadgeCheck size={32} color="#FFFFFF" />,
+        iconBgColor: "#283593",
+        arrowColor: "#3949AB",
+        title: "Корпоративная продукция",
+        description: "Полный цикл разработки и печати корпоративных материалов: от визиток до брендированных пакетов.",
+        items: [
+            "Визитки",
+            "Фирменные бланки",
+            "Конверты",
+            "Папки"
+        ],
+        slug: "corporate-products"
+    },
+    {
+        icon: <Package size={32} color="#FFFFFF" />,
+        iconBgColor: "#00695C",
+        arrowColor: "#26A69A",
+        title: "Упаковка и этикетки",
+        description: "Разработка и печать упаковки, стикеров и этикеток для продукции любой категории.",
+        items: [
+            "Коробки",
+            "Стикеры",
+            "Этикетки",
+            "Бирки"
+        ],
+        slug: "packaging-labels"
+    },
+    {
+        icon: <Calendar size={32} color="#FFFFFF" />,
+        iconBgColor: "#FF6F00",
+        arrowColor: "#FFA000",
+        title: "Календари",
+        description: "Печать настольных, настенных и перекидных календарей для корпоративного и рекламного использования.",
+        items: [
+            "Настольные календари",
+            "Настенные календари",
+            "Перекидные календари",
+            "Карманные календари"
+        ],
+        slug: "calendars"
+    },
+    {
+        icon: <Store size={32} color="#FFFFFF" />,
+        iconBgColor: "#4527A0",
+        arrowColor: "#673AB7",
+        title: "POS-материалы",
+        description: "Изготовление рекламных материалов для мест продаж: воблеры, шелфтокеры, дисплеи.",
+        items: [
+            "Воблеры",
+            "Шелфтокеры",
+            "Дисплеи",
+            "Стойки"
+        ],
+        slug: "pos-materials"
+    },
+    {
         icon:<Zap size={32} color="#FFFFFF" />,
         iconBgColor:"#E94394",
         arrowColor:"#EC4798",

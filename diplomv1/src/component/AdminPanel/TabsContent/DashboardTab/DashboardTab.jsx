@@ -61,7 +61,7 @@ export default function DashboardTab() {
       </div>
       <div className="stat-card">
         <p className="stat-title">Активные услуги</p>
-        <p className="stat-value">6</p>
+        <p className="stat-value">12</p>
       </div>
       <div className="stat-card">
         <p className="stat-title">В работе</p>
